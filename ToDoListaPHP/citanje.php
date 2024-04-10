@@ -49,26 +49,20 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis/com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+
 </head>
-<body>
-	<main class="wrapper col-md-12">
-		<h1 class="mt-5 mb-3">Pregled podataka</h1>
-		<div class="form-group">
-			<label>naziv</label>
-			<p><b><?php echo $row["naziv"]; ?></b></p>
-		</div>
-		
-		<div class="form-group">
-			<label>datum</label>
-			<p><b><?php echo $row["datum"]; ?></b></p>
-		</div>
-		
-		<div class="form-group">
-			<label>brojUcesnika</label>
-			<p><b><?php echo $row["brojUcesnika"]; ?></b></p>
-		</div>
-		
+<body class="flex items-center justify-center mt-20 text-gray-400 bg-gray-900">
+	<div class="p-4 lg:w-1/3">
+        <div class="h-full bg-gray-800 bg-opacity-40 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+          <h2 class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">PREGLED PODATAKA</h2>
+          <h1 class="title-font sm:text-2xl text-xl font-medium text-white mb-3"><?php echo $row["naziv"]; ?></h1>
+		  <h2 class="tracking-widest title-font font-medium text-gray-500 mb-1">ID:<?php echo $row["id"]; ?> </h2>
+          <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+		  <p class="leading-relaxed mb-3">Broj učesnika: <?php echo $row["brojUcesnika"]; ?></p>
+		  <p class="leading-relaxed mb-3">Datum <?php echo $row["datum"]; ?></p> 
 		<p><a href="index.php" class="btn btn-primary">Nazad</a></p>
-	</main>
+		</div>
+	</div>
 </body>
 </html>

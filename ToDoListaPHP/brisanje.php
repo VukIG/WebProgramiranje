@@ -40,12 +40,14 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis/com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+
 </head>
-<body>
-	<main class="wrapper col-md-12">
-		<h2 class="mt-5 mb-3">Brisanje dogadjaja</h2>
+<body class="text-gray-400 bg-gray-900">
+		<div class="flex flex-col gap-5 flex items-center justify-center">
+		<h2 class="mt-5 text-4xl mb-3">Brisanje dogadjaja</h2>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-			<div class="alert alert-danger">
+			<div class="alert alert-danger flex gap-3 flex-col justify-center">
 				<input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
 				<p>Da li ste sigurni da želite da obrišete podatke o ovom dogadjaju?</p>
 				<p>
@@ -54,6 +56,6 @@
 				</p>
 			</div>
 		</form>
-	</main>
+		</div>
 </body>
 </html>

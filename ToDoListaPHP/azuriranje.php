@@ -106,35 +106,53 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis/com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
-	<main class="wrapper col-md-12">
-		<h2 class="mt-5">Ažuriranje dogadjaja</h2>
-		<p>Molimo Vas, uredite ulazne podatke i sačuvajte izmene.</p>
-		<form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
-			<div class="form-group">
-				<label>naziv</label>
-				<input type="text" name="naziv" class="form-control" <?php echo (!empty($naziv_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $naziv; ?>">
-				<span class=invalid-feedback"><?php echo $naziv_err; ?></span>
-			</div>
-			
-			<div class="form-group">
-				<label>datum</label>
-				<input type="date" name="datum" class="form-control" <?php echo (!empty($datum_err)) ? 'is-invalid' : ''; ?><?php echo $datum; ?></input>
-				<span class=invalid-feedback"><?php echo $datum_err; ?></span>
-			</div>
-			
-			<div class="form-group">
-				<label>brojUcesnika</label>
-				<input type="number" name="brojUcesnika" class="form-control" <?php echo (!empty($brojUcesnika_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $brojUcesnika; ?>">
-				<span class=invalid-feedback"><?php echo $brojUcesnika_err; ?></span>
-			</div>
-			
-			<input type="hidden" name="id" value="<?php echo $id; ?>"/>
-			<input type="submit" class="btn btn-primary" value="Uradi">
-			<a href="index.php" class="btn btn-secondary ml-2">Odustani</a> 
-			
+	<section class="text-gray-400 bg-gray-900 body-font h-[100vh]">
+		<form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" 
+		class="container px-5 py-24 w-[70vw] mx-auto flex flex-wrap items-center" method="post">
+		<div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+		<h1 class="title-font font-medium text-3xl text-white">
+			Savršeno optimizovana To-do-lista. Bez naprezanje, polako s plaćanje</h1>
+		<p class="leading-relaxed mt-4">
+			Promenite Vaš događaje ovde. 
+			Promenite Naziv, Datum ili broj učesnika
+		</p>
+		</div>
+		<div class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex 
+		flex-col md:ml-auto w-full mt-10 md:mt-0">
+		<h2 class="text-white text-lg font-medium title-font mb-5">Ažuriranje dogadjaj:</h2>
+		<div class="relative mb-4">
+			<label for="naziv" class="leading-7 text-sm text-gray-400">Naziv</label>
+			<input type="text" id="naziv" name="naziv" class="w-full <?php echo(!empty($naziv_err)) ? 'bg-red-500' : 'bg-gray-600'; ?> bg-opacity-20 focus:bg-transparent 
+			focus:ring-2 focus:ring-yellow-900 rounded border border-gray-600 focus:border-yellow-500 
+			text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+			value="<?php echo $naziv; ?>" >
+			<span class="text-red-500"><?php echo $naziv_err; ?></span>
+		</div>
+		<div class="relative mb-4">
+			<label for="datum" class="leading-7 text-sm text-gray-400">Datum</label>
+			<input type="date" id="datum" name="datum" class="w-full <?php echo(!empty($datum_err)) ? 'bg-red-500' : 'bg-gray-600'; ?> bg-gray-600 bg-opacity-20 
+			focus:bg-transparent focus:ring-2 focus:ring-yellow-900 rounded border border-gray-600 
+			focus:border-yellow-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors 
+			duration-200 ease-in-out" value="<?php echo $datum; ?>">
+			<span class="text-red-500"><?php echo $datum_err; ?></span>
+		</div>
+		<div class="relative mb-4">
+			<label for="brojUcesnika" class="leading-7 text-sm text-gray-400">Broj učesnika</label>
+			<input type="number" id="brojUcesnika" name="brojUcesnika" class="w-full <?php echo(!empty($brojUcesnika_err)) ? 'bg-red-500' : 'bg-gray-600'; ?> bg-gray-600 bg-opacity-20 
+			focus:bg-transparent focus:ring-2 focus:ring-yellow-900 rounded border border-gray-600 
+			focus:border-yellow-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors 
+			duration-200 ease-in-out" value="<?php echo $brojUcesnika; ?>">
+			<span class="text-red-500"><?php echo $brojUcesnika_err; ?></span>
+		</div>
+		<input type="hidden" name="id" value="<?php echo $id; ?>"/>
+		<input type="submit" class="text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" value="Azuriraj">
+		<a href="index.php" class="text-white bg-yellow-500 text-center border-0 mt-3 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" ml-2>Odustani</a>
+		</div>
 		</form>
-	</main>
+	</section>
 </body>
 </html>
